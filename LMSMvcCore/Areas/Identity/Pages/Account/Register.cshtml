@@ -1,0 +1,205 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Register - Loan Management System</title>
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+</head>
+
+<body class="bg-gradient-primary">
+    <div class="container">
+        <div class="card shadow-lg o-hidden border-0 my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-flex">
+                        <div class="flex-grow-1 bg-register-image" style="background-image: url(&quot;~/assets/img/dogs/image2.jpeg&quot;);"></div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h4 class="text-dark mb-4">Create an Account!</h4>
+                            </div>
+                            <form class="user" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                <div class="row mb-3">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control form-control-user" asp-for="Input.Name" id="exampleFirstName" placeholder="Email" name="Email">
+                                        </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control form-control-user" asp-for="Input.PhoneNumber" id="exampleLastName" placeholder="Last Name">
+                                        </div>
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control form-control-user" asp-for="Input.Address" aria-describedby="emailHelp" placeholder="Address Address">
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control form-control-user" asp-for="Input.POB" placeholder="Place Of Birth">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control form-control-user" asp-for="Input.DOB" placeholder="Date of Birth">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control form-control-user" asp-for="Input.AccountNumber" placeholder="Account number">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control form-control-user" asp-for="Input.BankName" placeholder="Bank Name">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control form-control-user" asp-for="Input.Email" placeholder="Email">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control form-control-user" asp-for="Input.Password" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control form-control-user" asp-for="Input.ConfirmPassword" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary d-block btn-user w-100" type="submit">Register Account</button>
+                                <hr>
+                                <a class="btn btn-primary d-block btn-google btn-user w-100 mb-2" role="button">
+                                    <i class="fab fa-google"></i>&nbsp; Register with Google
+                                </a>
+                                <a class="btn btn-primary d-block btn-facebook btn-user w-100" role="button">
+                                    <i class="fab fa-facebook-f"></i>&nbsp; Register with Facebook
+                                </a>
+                                <hr>
+                            </form>
+                            <div class="text-center">
+                                <a class="small" id="forgot-password" asp-page="./ForgotPassword">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login.html">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/script.min.js"></script>
+    <script src="~/assets/js/script.min.js"></script>
+</body>
+
+</html>
+
+@* 
+<div class="row">
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h4>Create a new account.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Name"></label>
+                <input asp-for="Input.Name" class="form-control" />
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.PhoneNumber"></label>
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Address"></label>
+                <textarea asp-for="Input.Address" class="form-control"></textarea>
+                <span asp-validation-for="Input.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.POB"></label>
+                <input asp-for="Input.POB" class="form-control" />
+                <span asp-validation-for="Input.POB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.DOB"></label>
+                <input asp-for="Input.DOB" class="form-control" />
+                <span asp-validation-for="Input.DOB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.AccountNumber"></label>
+                <input asp-for="Input.AccountNumber" class="form-control" />
+                <span asp-validation-for="Input.AccountNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.BankName"></label>
+                <input asp-for="Input.BankName" class="form-control" />
+                <span asp-validation-for="Input.BankName" class="text-danger"></span>
+            </div>
+            @*   <div class="form-group">
+            <label asp-for="Input.LoanType"></label>
+            <select asp-for="Input.LoanType" asp-items="ViewBag.LoanType" class="form-control"></select>
+            <span asp-validation-for="Input.LoanType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h4>Use another service to register.</h4>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                            for details on setting up this ASP.NET application to support logging in via external services.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+} 
+ *@

@@ -1,0 +1,55 @@
+﻿@model LMSMvcCore.Models.Payment
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3 class="text-dark mb-4">@Model.ApplicationUser.Name Details</h3>
+<div class="card shadow">
+    <div class="card-header py-3">
+        <p class="text-primary m-0 fw-bold">Details</p>
+    </div>
+    <div class="card-body">
+          <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PaymentDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NextDue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NextDue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OutStanding)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OutStanding)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Loan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Loan.Department)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationUserId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ApplicationUserId)
+        </dd>
+    </dl>
+    </div>
+<div>
+    @* <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> | *@
+    <a asp-action="Index" class="btn btn-primary btn-lg">Back to List</a>
+</div>

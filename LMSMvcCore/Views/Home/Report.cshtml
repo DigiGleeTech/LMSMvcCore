@@ -1,0 +1,98 @@
+﻿@model IEnumerable<LMSMvcCore.Models.ApplicationUser>
+@{
+    ViewData["Title"] = "Report";
+}
+
+<div class="row">
+    <div class="col-lg-12 col-xl-12">
+        @* Todo List *@
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="text-primary fw-bold m-0">Report</h6>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <h6 class="mb-0"><strong>Total Granted Loan Amount</strong></h6><span class="text-xs"></span>
+                        </div>
+                        <div class="col-auto">
+                            <label class="form-check-label" for="formCheck-1">@ViewBag.TotalGrantedLoanAmount</label>
+                        </div>
+                    </div>
+                </li>               
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <h6 class="mb-0"><strong>Total Active Loan</strong></h6><span class="text-xs"></span>
+                        </div>
+                        <div class="col-auto">
+                            <label class="form-check-label" for="formCheck-1">@ViewBag.TotalActiveLoan</label>
+                        </div>
+                    </div>
+                </li>                    
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <h6 class="mb-0"><strong>Total Covered Loan</strong></h6><span class="text-xs"></span>
+                        </div>
+                        <div class="col-auto">
+                            <label class="form-check-label" for="formCheck-1">@ViewBag.TotalCoveredLoan</label>
+                        </div>
+                    </div>
+                </li>                          
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <h6 class="mb-0"><strong>Total Rejected Loan</strong></h6><span class="text-xs"></span>
+                        </div>
+                        <div class="col-auto">
+                            <label class="form-check-label" for="formCheck-1">@ViewBag.TotaRejectedlLoan</label>
+                        </div>
+                    </div>
+                </li>                                 
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <h6 class="mb-0"><strong>Total Pending Loan</strong></h6><span class="text-xs"></span>
+                        </div>
+                        <div class="col-auto">
+                            <label class="form-check-label" for="formCheck-1">@ViewBag.TotalPendingLoan</label>
+                        </div>
+                    </div>
+                </li>                                       
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <h6 class="mb-0"><strong>Total Profit</strong></h6><span class="text-xs"></span>
+                        </div>
+                        <div class="col-auto">
+                            <label class="form-check-label" for="formCheck-1">@ViewBag.TotalProfit</label>
+                        </div>
+                    </div>
+                </li>                                     
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <h6 class="mb-0"><strong>Total Active Client</strong></h6><span class="text-xs"></span>
+                        </div>
+                        <div class="col-auto">
+                            <label class="form-check-label" for="formCheck-1">@ViewBag.TotalActiveClient</label>
+                        </div>
+                    </div>
+                </li>                                          
+                <li class="list-group-item">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col me-2">
+                            <h6 class="mb-0"><strong>Total UnActive Client</strong></h6><span class="text-xs"></span>
+                        </div>
+                        <div class="col-auto">
+                            <label class="form-check-label" for="formCheck-1">@ViewBag.TotalUnActiveClient</label>
+                        </div>
+                    </div>
+                </li>               
+            </ul>
+        </div>
+        @* End of Todo List *@
+    </div>
+</div>

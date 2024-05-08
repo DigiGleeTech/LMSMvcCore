@@ -1,0 +1,54 @@
+﻿@model IEnumerable<LMSMvcCore.Models.Loan>
+
+@{
+    ViewData["Title"] = "Make Payment";
+}
+<h3 class="text-dark mb-4">Pay Point</h3>
+<div class="card shadow">
+    <div class="card-header py-3">
+        <p class="text-primary m-0 fw-bold">Payments Zone</p>
+    </div>
+    <div class="card-body">
+        <table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.Name)
+            </th>
+            <th>
+                Total Payment Amount
+            </th>
+            <th>
+                Amount To Pay
+            </th>
+            <th>
+                NextDue
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.Name)
+            </td>
+            <td>
+               @(item.Amount + Convert.ToDecimal(item.InterestRate))
+            </td>
+            <td>
+              @((item.Amount + Convert.ToDecimal(item.InterestRate)) / 4) 
+            </td>
+            <td>
+                @DateTime.Now.Date.ToString("MMM, yyyy")
+            </td>
+            <td>
+                <input type="hidden" value="@item.ApplicationUserId" id="CustomerId" />
+                <button id="btnMakePayment" class="btn btn-primary btn-lg">Make Payment</button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+</div>

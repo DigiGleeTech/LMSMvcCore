@@ -1,0 +1,115 @@
+﻿@model IEnumerable<LMSMvcCore.Models.Loan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (Model.Any())
+{
+    <div class="text-dark mb-4 card shadow">
+        <a asp-action="Applyloan" asp-controller="Loans" disabled class="btn btn-danger btn-lg">Please Pay your out-standing loan befor applying new</a>
+    </div>
+}
+else
+{
+    <div class="text-dark mb-4 card shadow">
+        <a asp-action="Applyloan" asp-controller="Loans" class="btn btn-danger btn-lg">Apply New Loan</a>
+    </div>
+}
+<div class="card shadow">
+    <div class="card-header py-3">
+        <p class="text-primary m-0 fw-bold">Loan List</p>
+    </div>
+   
+        <div class="card-body">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApplicationUser.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApplicationUser.Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApplicationUser.PhoneNumber2)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApplicationUser.POB)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApplicationUser.DOB)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApplicationUser.BankName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApplicationUser.AccountNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                     @if (Model.Any())
+                    {
+                        @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicationUser.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicationUser.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicationUser.PhoneNumber2)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicationUser.POB)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicationUser.DOB)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicationUser.BankName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicationUser.AccountNumber)
+                            </td>
+                            <td>
+                                @if (item.Status.ToUpper() == "APPROVED")
+                                {
+                                    <label class="alert alert-success">Approved</label>
+                                }
+                                else if (item.Status.ToUpper() == "REJECTED")
+                                {
+                                    <label class="alert alert-danger">Rejected</label>
+                                }
+                                else
+                                {
+                                    <label class="alert alert-primary">Pending</label>
+                                }
+                            </td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Loan Details</a>
+                            </td>
+                        </tr>
+                                    }
+                    }
+                    else
+                    {
+                        <h2 class="text-center text-danger">No Any Active Loan Please Apply</h2>
+                    }
+                </tbody>
+            </table>
+        </div>
+</div>

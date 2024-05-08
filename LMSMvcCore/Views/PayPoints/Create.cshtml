@@ -1,0 +1,52 @@
+﻿@model LMSMvcCore.Models.Payment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h3 class="text-dark mb-4">Pay Point</h3>
+<div class="card shadow">
+    <div class="card-header py-3">
+        <p class="text-primary m-0 fw-bold">Make Payment</p>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col-md-6">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="LoanId" class="control-label"></label>
+                <select asp-for="LoanId" class ="form-control" asp-items="ViewBag.LoanId"></select>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="NextDue" class="control-label"></label>
+                <input asp-for="NextDue" class="form-control" />
+                <span asp-validation-for="NextDue" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="OutStanding" class="control-label"></label>
+                <input asp-for="OutStanding" class="form-control" />
+                <span asp-validation-for="OutStanding" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ApplicationUserId" class="control-label"></label>
+                <input asp-for="ApplicationUserId" class="form-control" />
+                <span asp-validation-for="ApplicationUserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,104 @@
+﻿@model LMSMvcCore.Models.Loan
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card shadow">
+    <div class="card-header py-3">
+        <p class="text-primary m-0 fw-bold">Loan Application form</p>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.ApplicationUser.Name)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.ApplicationUser.Name)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.LoanType)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.LoanType)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Department)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Department)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.RankPosition)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.RankPosition)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.PVN)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.PVN)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Salary)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Amount)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Amount)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.InterestRate)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.InterestRate)
+            </dd>
+            <dt class="col-sm-4">
+               Total Amount
+            </dt>
+            <dd class="col-sm-8">
+                @ViewBag.TotalAmount
+            </dd>
+            <dt class="col-sm-4">
+                Out-Standing balance
+            </dt>
+            <dd class="col-sm-8">
+                @ViewBag.TotalAmount
+            </dd>
+            <dt class="col-sm-4">
+                Next Due
+            </dt>
+            <dd class="col-sm-8">
+                @ViewBag.NextDue
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.StartDade)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.StartDade)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.EndDade)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.EndDade)
+            </dd>
+        </dl>
+
+        <div>
+            @if(User.IsInRole("Admin")){
+                <a asp-action="ApproveLoad" asp-route-id="@Model.Id" class="btn btn-success">Approve</a> 
+                <a asp-action="RejectLoan" asp-route-id="@Model.Id" class="btn btn-danger">Reject</a> 
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            }else{
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            }
+        </div>
+    </div>
+</div>
+
